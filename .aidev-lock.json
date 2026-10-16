@@ -1,0 +1,42 @@
+{
+  "lockfileVersion": 1,
+  "registry": "http://localhost:4000",
+  "artifacts": {
+    "aidev/github": {
+      "version": "1.2.0",
+      "sha256": "0ecf8237ad00b8aa0249f7e9c9975e48abfec6a1d6ecaad452b29953dda361be",
+      "type": "mcp",
+      "explicit": false,
+      "providers": [
+        "copilot"
+      ]
+    },
+    "aidev/react-19-migration": {
+      "version": "1.3.0",
+      "sha256": "ea2eb9be2ae80644bfb0bca3b1c4395bc56420b3116562717c0eb782d0c25bef",
+      "type": "skill",
+      "explicit": false,
+      "providers": [
+        "copilot"
+      ]
+    },
+    "aidev/react-migration-agent": {
+      "version": "1.4.2",
+      "sha256": "5f041af466ad865a599209b9d846d1d1f010cc8e0d4ff0e6186448ad5b16d0f0",
+      "type": "agent",
+      "explicit": true,
+      "providers": [
+        "copilot"
+      ]
+    },
+    "aidev/rtl-migration": {
+      "version": "1.0.0",
+      "sha256": "57d782a2e0b39a9d7cdd6580c82f2edca5a8fc17e74d379b0d4b93d17766ff10",
+      "type": "skill",
+      "explicit": false,
+      "providers": [
+        "copilot"
+      ]
+    }
+  }
+}

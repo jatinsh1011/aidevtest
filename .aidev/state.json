@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "installed": {
+    "aidev/react-19-migration": {
+      "ref": "aidev/react-19-migration",
+      "type": "skill",
+      "version": "1.3.0",
+      "sha256": "ea2eb9be2ae80644bfb0bca3b1c4395bc56420b3116562717c0eb782d0c25bef",
+      "range": "latest",
+      "explicit": false,
+      "dependsOn": [],
+      "installedAt": "2026-10-03T09:38:05.204Z",
+      "providers": {
+        "copilot": {
+          "ops": [
+            {
+              "kind": "write",
+              "path": "/Users/jatinsharma/Developer/Code/aidevtest/.github/skills/react-19-migration/SKILL.md",
+              "content": "---\nname: react-19-migration\ndescription: \"Step-by-step playbook for upgrading React 17/18 apps to React 19: removed APIs, codemods and verification.\"\n---\n\n# React 19 migration\n\n1. Read `package.json` and lockfile; list react, react-dom, @types/react versions.\n2. Run `npx types-react-codemod@latest preset-19 ./src` and `npx react-codemod@latest` for removed APIs.\n3. Replace `ReactDOM.render` with `createRoot`; remove `propTypes`/`defaultProps` on function components.\n4. Replace string refs and legacy context; convert `forwardRef` to ref-as-prop where safe.\n5. Run the type checker, then the test suite; fix failures one category at a time.\n6. Summarise breaking changes handled and anything needing manual review.\n"
+            },
+            {
+              "kind": "write",
+              "path": "/Users/jatinsharma/Developer/Code/aidevtest/.github/skills/react-19-migration/references/removed-apis.md",
+              "content": "# Removed in React 19\n\n- `ReactDOM.render`, `hydrate`, `unmountComponentAtNode`\n- `propTypes` and `defaultProps` for function components\n- String refs, legacy Context, `findDOMNode`\n"
+            },
+            {
+              "kind": "write",
+              "path": "/Users/jatinsharma/Developer/Code/aidevtest/.github/skills/react-19-migration/scripts/list-react-versions.sh",
+              "content": "#!/usr/bin/env sh\nnpm ls react react-dom @types/react --depth=0\n"
+            }
+          ],
+          "backupId": "2026-10-03T09-38-05-195Z-x8fm"
+        }
+      },
+      "tx": "2026-10-03T09-38-05-178Z-elbm"
+    },
+    "aidev/rtl-migration": {
+      "ref": "aidev/rtl-migration",
+      "type": "skill",
+      "version": "1.0.0",
+      "sha256": "57d782a2e0b39a9d7cdd6580c82f2edca5a8fc17e74d379b0d4b93d17766ff10",
+      "range": "latest",
+      "explicit": false,
+      "dependsOn": [],
+      "installedAt": "2026-10-03T09:38:05.204Z",
+      "providers": {
+        "copilot": {
+          "ops": [
+            {
+              "kind": "write",
+              "path": "/Users/jatinsharma/Developer/Code/aidevtest/.github/skills/rtl-migration/SKILL.md",
+              "content": "---\nname: rtl-migration\ndescription: Migrate Enzyme tests to React Testing Library with user-centric queries and async patterns.\n---\n\n# Enzyme → React Testing Library\n\n1. Find specs importing `enzyme`; migrate one file at a time.\n2. Replace `shallow/mount` with `render`; query by role, label or text — not by component or class.\n3. Replace `simulate` with `userEvent`; await async UI with `findBy*`/`waitFor`.\n4. Delete snapshot tests that only assert implementation details.\n5. Run the file after each conversion and keep behaviour assertions identical.\n"
+            }
+          ],
+          "backupId": "2026-10-03T09-38-05-200Z-se8q"
+        }
+      },
+      "tx": "2026-10-03T09-38-05-178Z-elbm"
+    },
+    "aidev/github": {
+      "ref": "aidev/github",
+      "type": "mcp",
+      "version": "1.2.0",
+      "sha256": "0ecf8237ad00b8aa0249f7e9c9975e48abfec6a1d6ecaad452b29953dda361be",
+      "range": "latest",
+      "explicit": false,
+      "dependsOn": [],
+      "installedAt": "2026-10-03T09:38:05.204Z",
+      "providers": {
+        "copilot": {
+          "ops": [
+            {
+              "kind": "json-array",
+              "path": "/Users/jatinsharma/Developer/Code/aidevtest/.vscode/mcp.json",
+              "keys": [
+                "inputs"
+              ],
+              "idKey": "id",
+              "value": {
+                "type": "promptString",
+                "id": "github-github_personal_access_token",
+                "description": "GitHub PAT with repo scope",
+                "password": true
+              }
+            },
+            {
+              "kind": "json-key",
+              "path": "/Users/jatinsharma/Developer/Code/aidevtest/.vscode/mcp.json",
+              "keys": [
+                "servers",
+                "github"
+              ],
+              "value": {
+                "type": "stdio",
+                "command": "npx",
+                "args": [
+                  "-y",
+                  "@modelcontextprotocol/server-github"
+                ],
+                "env": {
+                  "GITHUB_PERSONAL_ACCESS_TOKEN": "${input:github-github_personal_access_token}"
+                }
+              }
+            }
+          ],
+          "backupId": "2026-10-03T09-38-05-202Z-1vog"
+        }
+      },
+      "tx": "2026-10-03T09-38-05-178Z-elbm"
+    },
+    "aidev/react-migration-agent": {
+      "ref": "aidev/react-migration-agent",
+      "type": "agent",
+      "version": "1.4.2",
+      "sha256": "5f041af466ad865a599209b9d846d1d1f010cc8e0d4ff0e6186448ad5b16d0f0",
+      "range": "latest",
+      "explicit": true,
+      "dependsOn": [
+        "aidev/react-19-migration",
+        "aidev/rtl-migration",
+        "aidev/github"
+      ],
+      "installedAt": "2026-10-03T09:38:05.204Z",
+      "providers": {
+        "copilot": {
+          "ops": [
+            {
+              "kind": "write",
+              "path": "/Users/jatinsharma/Developer/Code/aidevtest/.github/agents/react-migration-agent.agent.md",
+              "content": "---\nname: react-migration-agent\ndescription: Migrates React 17/18 applications to React 19 with dependency analysis, codemods and test generation.\ntools:\n  - read\n  - edit\n  - search\n  - execute\n---\n\nYou are a React migration specialist.\n\n## Process\n1. Audit dependencies and list blockers for React 19.\n2. Use the `react-19-migration` skill for the upgrade steps.\n3. Convert legacy tests using the `rtl-migration` skill.\n4. Commit in small, reviewable steps; open a PR with the GitHub MCP when asked.\n\n## Rules\n- Never change public component APIs without calling it out.\n- Run the test suite after every batch of changes.\n"
+            }
+          ],
+          "backupId": "2026-10-03T09-38-05-203Z-w9w0"
+        }
+      },
+      "tx": "2026-10-03T09-38-05-178Z-elbm"
+    }
+  }
+}
